@@ -27,23 +27,19 @@
       const App = window.App.default
 
       const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
-      const store = window.Redux.createStore(
-        function todos(state = [], action) {
-          switch (action.type) {
-            case 'ADD_TODO':
-              return state.concat([action.text])
-            default:
-              return state
-          }
-        },
-        {
-          auth: {
-            user: 'none'
-          }
-        },
-        composeEnhancers(Redux.applyMiddleware())
-      )
-      window.checkState = () => store.getState()
+      const rootReducer = function todos(state, action) {
+        switch (action.type) {
+          case 'TEST_CHANGE_GIT_LINK':
+            return state.githubProfileLink = {...state, githubProfileLink: action.payload}
+          default:
+            return state
+        }
+      }
+      const initialState = {
+        githubProfileLink: 'https://github.com/BrutchsamaJeanLouis',
+      }
+      const store = window.Redux.createStore(rootReducer, initialState, composeEnhancers(Redux.applyMiddleware()))
+      window.checkState = (() => store.getState())()
       // also expose to window for debugging CDN does not support devtools
       const { Provider } = ReactRedux
 
