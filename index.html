@@ -10,9 +10,13 @@
   <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/history/5.3.0/history.development.min.js" integrity="sha512-U7IBBimDuI7Puau/j2ucZjpEkJdTs0SVXNpC4IkWoeQWTy5JTdj105UkrT4MGFfb9Q3iVkhvBP9iEKYPukhXLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/6.3.0/react-router.development.min.js" integrity="sha512-dMBBHCyipg4ZTtJkEyLFkNpHE/hP4UcduZJ3eRkSzdd06T0l+bh0Hyb/df8U2y7TmYIHVKniiMfsGIOFp7oJgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.3.0/react-router-dom.production.min.js" integrity="sha512-ntpEQ30iiOVIDFmcdez5rbm/M/Fhft3hdEUBM7JbS6bNlc+zJ99KS795myObvbbupJv9sPwDcodIfaXYS+czPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/8.0.2/react-redux.min.js" integrity="sha512-Vbal7T6qsWoJpIdDRRgn6N9mNqyKQETRnA4FY0+L6e5O2EgCQGOpaTv8EUb1vT8zjRn8SruxDiWq6XaLYwWDvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js" integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@reduxjs/toolkit@1.8.3/dist/index.min.js"></script> -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -20,10 +24,16 @@
   <!-- Components Init -->
   <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./Navbar.jsx"></script>
   <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./App.jsx"></script>
+  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./RepoList.jsx"></script>
 
   <!-- React Root -->
-  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2"
-    data-plugins="transform-es2015-modules-umd">
+  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd">
+    axios.get(
+    'https://api.github.com/users/BrutchsamaJeanLouis/repos', { username: 'BrutchsamaJeanLouis'}, {
+      headers: {
+        'Accept': 'application/vnd.github+json'
+      }
+    }).then(res => console.log(res))
       const App = window.App.default
 
       const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
@@ -44,9 +54,11 @@
       const { Provider } = ReactRedux
 
       ReactDOM.render(
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <ReactRouterDOM.BrowserRouter>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ReactRouterDOM.BrowserRouter>
         ,document.getElementById('root')
       );
     </script>
