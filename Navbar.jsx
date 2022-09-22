@@ -10,7 +10,8 @@ export default function Navbar() {
         change link
         {githubLink}
       </button>
-      <ReactRouterDOM.Link to='/about'><button>about</button></ReactRouterDOM.Link>
+      <ReactRouterDOM.Link to='/about'><button className="btn btn-primary">about</button></ReactRouterDOM.Link>
+      <ReactRouterDOM.Link to='/my-portfolio'><button className="btn btn-primary">home</button></ReactRouterDOM.Link>
     </div>
   )
 }
