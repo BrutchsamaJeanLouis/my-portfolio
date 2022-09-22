@@ -1,14 +1,7 @@
-import React from 'react'
-import { connect } from 'react-redux'
+export default function RepoList () {
+  const [state, setState] = React.useState(true)
 
-export const RepoList = (props) => {
   return (
-    <div>RepoList</div>
+    <div style={{ color: 'white', fontSize: '100px' }}>RepoList</div>
   )
 }
-
-const mapStateToProps = (state) => ({})
-
-const mapDispatchToProps = {}
-
-export default ReactRedux.connect(mapStateToProps, mapDispatchToProps)(RepoList)

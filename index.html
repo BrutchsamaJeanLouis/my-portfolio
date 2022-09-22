@@ -18,14 +18,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/8.0.2/react-redux.min.js" integrity="sha512-Vbal7T6qsWoJpIdDRRgn6N9mNqyKQETRnA4FY0+L6e5O2EgCQGOpaTv8EUb1vT8zjRn8SruxDiWq6XaLYwWDvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js" integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Components Init NOTE import order -->
+  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./RepoList.jsx"></script>
+  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./Navbar.jsx"></script>
+  <!-- App needs to go last Components need to import based on hierarchy  -->
+  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./App.jsx"></script>
 </head>
 
 <body>
   <div id="root"></div>
-  <!-- Components Init -->
-  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./Navbar.jsx"></script>
-  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./App.jsx"></script>
-  <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd" src="./RepoList.jsx"></script>
 
   <!-- React Root -->
   <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd">
@@ -35,7 +37,6 @@
         'Accept': 'application/vnd.github+json'
       }
     }).then(res => console.log(res))
-      const App = window.App.default
 
       const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
       const rootReducer = function todos(state, action) {
@@ -57,7 +58,7 @@
       ReactDOM.render(
         <ReactRouterDOM.MemoryRouter>
           <Provider store={store}>
-            <App />
+            <App.default />
           </Provider>
         </ReactRouterDOM.MemoryRouter>
         ,document.getElementById('root')

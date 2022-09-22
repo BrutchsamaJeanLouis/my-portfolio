@@ -14,3 +14,5 @@ My Finding will be logged in a logbook format
 - routing will be a bit tricky due to github pages auto append the repo name in the url as the base browser path (solution is to make multiple base path matched in the router) and use memory router to keep the browser path static and unchanged
 
 - bootstrap works as expected. The CDN is a commonly used integration and shouldn't cause any issues
+
+- creating components the imports export does not work instead it was done be exposing the compiled component to the global window and initialize it from there. This introduced another problem. Each component needs to be declared/initialize based on the order the appear in the DOM. Meaning Root App component must initialize last since it host other components ETC.
