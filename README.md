@@ -11,6 +11,6 @@ My Finding will be logged in a logbook format
 
 - while implementing React Router error: Cannot read properties of undefined (reading 'createBrowserHistory') at e.BrowserRouter occurs. (Turns out the cdn bundle for ReactRouterDOM is not integrating well with history.js resolved by adding its cdn)
 
-- routing will be a bit tricky due to github pages auto append the repo name in the url as the base browser path (solution is to make multiple base path matched in the router)
+- routing will be a bit tricky due to github pages auto append the repo name in the url as the base browser path (solution is to make multiple base path matched in the router) and use memory router to keep the browser path static and unchanged
 
 - bootstrap works as expected. The CDN is a commonly used integration and shouldn't cause any issues

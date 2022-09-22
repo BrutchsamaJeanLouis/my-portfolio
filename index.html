@@ -55,11 +55,11 @@
       const { Provider } = ReactRedux
 
       ReactDOM.render(
-        <ReactRouterDOM.BrowserRouter>
+        <ReactRouterDOM.MemoryRouter>
           <Provider store={store}>
             <App />
           </Provider>
-        </ReactRouterDOM.BrowserRouter>
+        </ReactRouterDOM.MemoryRouter>
         ,document.getElementById('root')
       );
     </script>
