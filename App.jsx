@@ -1,8 +1,10 @@
 const Navbar = window.Navbar.default
 const RepoList = window.RepoList.default
+const { useEffect, useState } = React
 
 export default function App() {
-  const [state, setState] = React.useState('red')
+  const [state, setState] = useState()
+  
   return (
     <div className="container-fluid bg-dark vh-100">
       <div class="row">

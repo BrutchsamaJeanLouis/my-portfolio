@@ -31,13 +31,6 @@
 
   <!-- React Root -->
   <script type="text/babel" data-type="module" data-presets="es2015,react,stage-2" data-plugins="transform-es2015-modules-umd">
-    axios.get(
-    'https://api.github.com/users/BrutchsamaJeanLouis/repos', { username: 'BrutchsamaJeanLouis'}, {
-      headers: {
-        'Accept': 'application/vnd.github+json'
-      }
-    }).then(res => console.log(res))
-
       const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
       const rootReducer = function todos(state, action) {
         switch (action.type) {
