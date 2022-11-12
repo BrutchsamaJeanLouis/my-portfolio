@@ -1,9 +1,15 @@
 const Navbar = window.Navbar.default
 const RepoList = window.RepoList.default
 const { useEffect, useState } = React
+const { useNavigate } = ReactRouterDOM
 
 export default function App() {
-  const [state, setState] = useState()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // navigate('/projects')
+  }, [])
+  
   
   return (
     <div className="container-fluid bg-dark vh-100">
